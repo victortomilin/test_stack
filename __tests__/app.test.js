@@ -30,9 +30,7 @@ describe('Test api', () => {
           request(app)
             .post('/api/v1/store')
             .type('json')
-            .send([
-              { key: 'name', value: 'John' }
-            ])
+            .send({ key: 'name', value: 'John' })
             .set('Accept', /application\/json/)
             .then(response => {
               expect(response.statusCode).toBe(200)

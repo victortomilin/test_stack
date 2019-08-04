@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
 const lifoMiddleware = require('./middlewares/lifo')
+const storeMiddleware = require('./middlewares/store')
 
 const indexRouter = require('./routes/index')
 const lifoRouter = require('./routes/api/v1/lifo')
@@ -19,6 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/api/v1/lifo', lifoMiddleware(), lifoRouter)
-app.use('/api/v1/store', storeRouter)
+app.use('/api/v1/store', storeMiddleware(), storeRouter)
 
 module.exports = app
