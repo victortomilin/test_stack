@@ -7,6 +7,7 @@ const lifoMiddleware = require('./middlewares/lifo')
 
 const indexRouter = require('./routes/index')
 const lifoRouter = require('./routes/api/v1/lifo')
+const storeRouter = require('./routes/api/v1/store')
 
 const app = express()
 
@@ -18,5 +19,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/api/v1/lifo', lifoMiddleware(), lifoRouter)
+app.use('/api/v1/store', storeRouter)
 
 module.exports = app
